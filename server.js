@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 class Server {
   apiPaths = {
     auth: "/api/auth",
+    accounts: "/api/accounts",
   };
 
   constructor() {
@@ -24,6 +25,7 @@ class Server {
 
   routes() {
     this.app.use(this.apiPaths.auth, require("./routes/auth"));
+    this.app.use(this.apiPaths.accounts, require("./routes/accounts"));
   }
 
   listen() {

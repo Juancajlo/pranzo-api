@@ -2,7 +2,14 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {}
+    static associate({ Account }) {
+      this.hasMany(Account, {
+        foreignKey: "userId",
+        as: "accounts",
+        onDelete: "CASCADE",
+        hooks: true,
+      });
+    }
   }
   User.init(
     {
