@@ -17,7 +17,7 @@ const getAccounts = async (req, res) => {
   }
 };
 
-const createAccount = async (req, res) => {
+const createVenezuelanAccount = async (req, res) => {
   const { name, holder, identification, accountNumber, userId } = req.body;
   try {
     const account = await Account.create({
@@ -25,6 +25,53 @@ const createAccount = async (req, res) => {
       holder,
       identification,
       accountNumber,
+      userId,
+    });
+    res.json({
+      account,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: {
+        error,
+        message: "Internal server error creating a menu",
+      },
+    });
+  }
+};
+
+const createAmericanAccount = async (req, res) => {
+  const { name, holder, accountEmail, userId } = req.body;
+  try {
+    const account = await Account.create({
+      name,
+      holder,
+      accountEmail,
+      userId,
+    });
+    res.json({
+      account,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: {
+        error,
+        message: "Internal server error creating a menu",
+      },
+    });
+  }
+};
+
+const createCompleteAccount = async (req, res) => {
+  const { name, holder, identification, accountNumber, accountEmail, userId } =
+    req.body;
+  try {
+    const account = await Account.create({
+      name,
+      holder,
+      identification,
+      accountNumber,
+      accountEmail,
       userId,
     });
     res.json({
@@ -123,7 +170,9 @@ const deleteAccount = async (req, res) => {
 
 module.exports = {
   getAccounts,
-  createAccount,
+  createVenezuelanAccount,
+  createAmericanAccount,
+  createCompleteAccount,
   updateAccount,
   deleteAccount,
 };

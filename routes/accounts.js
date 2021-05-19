@@ -1,9 +1,10 @@
 const { Router } = require("express");
-const { check } = require("express-validator");
 
 const {
   getAccounts,
-  createAccount,
+  createVenezuelanAccount,
+  createAmericanAccount,
+  createCompleteAccount,
   updateAccount,
   deleteAccount,
 } = require("../controllers/accounts");
@@ -11,7 +12,9 @@ const {
 const router = Router();
 
 router.get("/", getAccounts);
-router.post("/", createAccount);
+router.post("/", createVenezuelanAccount);
+router.post("/", createAmericanAccount);
+router.post("/", createCompleteAccount);
 router.put("/:id", updateAccount);
 router.delete("/:id", deleteAccount);
 
