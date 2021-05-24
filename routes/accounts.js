@@ -12,9 +12,9 @@ const {
 const router = Router();
 
 router.get("/", getAccounts);
-router.post("/", createVenezuelanAccount);
-router.post("/", createAmericanAccount);
-router.post("/", createCompleteAccount);
+router.post("/venezuelan", createVenezuelanAccount);
+router.post("/american", createAmericanAccount);
+router.post("/complete", createCompleteAccount);
 router.put("/:id", updateAccount);
 router.delete("/:id", deleteAccount);
 

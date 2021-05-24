@@ -34,7 +34,7 @@ const createVenezuelanAccount = async (req, res) => {
     res.status(500).json({
       error: {
         error,
-        message: "Internal server error creating a menu",
+        message: "Internal server error creating a venezuelan account",
       },
     });
   }
@@ -56,7 +56,7 @@ const createAmericanAccount = async (req, res) => {
     res.status(500).json({
       error: {
         error,
-        message: "Internal server error creating a menu",
+        message: "Internal server error creating an american",
       },
     });
   }
@@ -81,7 +81,7 @@ const createCompleteAccount = async (req, res) => {
     res.status(500).json({
       error: {
         error,
-        message: "Internal server error creating a menu",
+        message: "Internal server error creating complete account",
       },
     });
   }

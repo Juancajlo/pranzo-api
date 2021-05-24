@@ -6,6 +6,8 @@ class Server {
   apiPaths = {
     auth: "/api/auth",
     accounts: "/api/accounts",
+    orders: "/api/orders",
+    dishes: "/api/dishes",
   };
 
   constructor() {
@@ -26,6 +28,8 @@ class Server {
   routes() {
     this.app.use(this.apiPaths.auth, require("./routes/auth"));
     this.app.use(this.apiPaths.accounts, require("./routes/accounts"));
+    this.app.use(this.apiPaths.orders, require("./routes/orders"));
+    this.app.use(this.apiPaths.dishes, require("./routes/dishes"));
   }
 
   listen() {
