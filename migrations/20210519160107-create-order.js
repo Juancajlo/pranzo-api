@@ -33,7 +33,7 @@ module.exports = {
         allowNull: false,
       },
       transferPicture: {
-        type: Sequelize.STRING,
+        type: Sequelize.BLOB,
         allowNull: false,
       },
       transferDay: {

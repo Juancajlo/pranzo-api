@@ -18,14 +18,13 @@ const getDishes = async (req, res) => {
 };
 
 const createDish = async (req, res) => {
-  //const file = req.file;
-  const { name, description, dishPicture } = req.body;
+  const file = req.file;
+  const { name, description } = req.body;
   try {
     const dish = await Dish.create({
       name,
       description,
-      dishPicture,
-      //dishPicture: file.buffer,
+      dishPicture: file.buffer,
     });
     res.json({
       dish,
@@ -42,7 +41,7 @@ const createDish = async (req, res) => {
 
 const updateDish = async (req, res) => {
   const id = req.params.id;
-  //const file = req.file;
+  const file = req.file;
   const { name, description, dishPicture } = req.body;
 
   try {
@@ -63,11 +62,11 @@ const updateDish = async (req, res) => {
     }
 
     if (dishPicture !== undefined) {
-      dishFound.dishPicture = dishPicture;
+      dishFound.dishPicture = file.buffer;
     }
 
-    /*if (dishPicture !== undefined) {
-      dishFound.dishPicture = file.buffer;
+    /*if (base64 !== undefined) {
+      dishFound.base64 = base64;
     }*/
 
     const dishSaved = await dishFound.save();

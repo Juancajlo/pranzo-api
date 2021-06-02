@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       shippingDay: DataTypes.DATEONLY,
       transferCode: DataTypes.STRING,
       transferName: DataTypes.STRING,
-      transferPicture: DataTypes.STRING,
+      transferPicture: DataTypes.BLOB,
       transferDay: DataTypes.DATEONLY,
       orderDetails: DataTypes.STRING,
       orderConfirmed: DataTypes.BOOLEAN,
