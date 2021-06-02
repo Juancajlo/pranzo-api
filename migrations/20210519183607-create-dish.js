@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false,
       },
       dishPicture: {
-        type: Sequelize.BLOB,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       createdAt: {
