@@ -18,13 +18,14 @@ const getDishes = async (req, res) => {
 };
 
 const createDish = async (req, res) => {
-  const file = req.file;
-  const { name, description } = req.body;
+  //const file = req.file;
+  const { name, description, dishPicture } = req.body;
   try {
     const dish = await Dish.create({
       name,
       description,
-      dishPicture: file.buffer,
+      dishPicture,
+      //dishPicture: file.buffer,
     });
     res.json({
       dish,

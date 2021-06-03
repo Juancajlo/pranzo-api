@@ -13,7 +13,8 @@ const {
 const router = Router();
 
 router.get("/", getDishes);
-router.post("/", upload.single("dishPicture"), createDish);
+router.post("/", createDish);
+//router.post("/", upload.single("dishPicture"), createDish);
 router.put("/:id", updateDish);
 router.delete("/:id", deleteDish);
 
