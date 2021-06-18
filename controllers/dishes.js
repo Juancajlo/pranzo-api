@@ -99,7 +99,7 @@ const deleteDish = async (req, res) => {
       });
     }
 
-    await account.destroy();
+    await dish.destroy();
     res.json({
       message: `Dish with id ${id} deleted successfully`,
     });
